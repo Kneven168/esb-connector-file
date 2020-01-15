@@ -96,6 +96,19 @@ public class FileConnectorUtils {
         return isFolder;
     }
 
+
+    /**
+     * @param remoteFile Location of the remote file
+     * @return true/false
+     */
+    public static boolean isFolder(FileObject remoteFile, boolean excludeFileExtensionCheck) {
+        boolean isFolder = false;
+        if (!excludeFileExtensionCheck && StringUtils.isEmpty(remoteFile.getName().getExtension())) {
+            isFolder = true;
+        }
+        return isFolder;
+    }
+
     public static StandardFileSystemManager getManager() {
         StandardFileSystemManager fsm = null;
         try {

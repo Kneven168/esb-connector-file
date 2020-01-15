@@ -79,4 +79,5 @@ public final class FileConstants {
     public static final String POSITION = "position";
     public static final String NUMBER_OF_LINES = "numberOfLines";
     public static final String QUERY_PARAM_SEPARATOR = "?";
+    public static final String EXCLUDE_FILE_EXTENSION_CHECK = "excludeFileExtensionCheck";
 }

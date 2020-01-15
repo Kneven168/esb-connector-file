@@ -134,7 +134,9 @@ public class FileMove extends AbstractConnector implements Connector {
                           StandardFileSystemManager manager) throws IOException {
         FileSystemOptions fso = FileConnectorUtils.getFso(messageContext, destination, manager);
         FileObject file = manager.resolveFile(destination, fso);
-        if (FileConnectorUtils.isFolder(file)) {
+        boolean excludeFileExtensionCheck = Boolean.valueOf((String) ConnectorUtils.lookupTemplateParamater(messageContext,
+            FileConstants.EXCLUDE_FILE_EXTENSION_CHECK));
+        if (FileConnectorUtils.isFolder(file, excludeFileExtensionCheck)) {
             if (!file.exists()) {
                 file.createFolder();
             }
